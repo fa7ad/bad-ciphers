@@ -16,9 +16,9 @@
     "loose": true
   },
   "module": {
-    "type": "es6",
+    "type": "umd",
     "strict": true,
-    "noInterop": false
+    "noInterop": true
   },
   "sourceMaps": true,
   "exclude": [

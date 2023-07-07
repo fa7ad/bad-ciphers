@@ -11,11 +11,12 @@
         "outputPath": "dist/packages/xor",
         "main": "packages/xor/src/index.ts",
         "tsConfig": "packages/xor/tsconfig.lib.json",
-        "assets": ["packages/xor/*.md"]
+        "assets": ["packages/xor/*.md"],
+        "format": ["esm", "cjs"]
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs xor {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs xor {args.ver} {args.registry} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {
