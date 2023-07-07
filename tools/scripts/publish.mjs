@@ -20,9 +20,20 @@ function invariant(condition, message) {
   }
 }
 
+function tryDecode(arg) {
+  try {
+    return JSON.parse(arg);
+  } catch {
+    return arg === 'undefined' ? undefined : arg;
+  }
+}
+
 // Executing publish script: node path/to/publish.mjs {name} --version {version} --tag {tag}
 // Default "tag" to "next" so we won't publish the "latest" tag by accident.
-const [, , name, version, tag = 'next'] = process.argv;
+let [name, version, registry, tag] = process.argv.map(tryDecode).slice(2);
+
+registry ||= "https://registry.npmjs.org"
+tag ||= "next"
 
 // A simple SemVer validation to validate the version
 const validVersion = /^\d+\.\d+\.\d+(-\w+\.\d+)?/;
@@ -57,4 +68,4 @@ try {
 }
 
 // Execute "npm publish" to publish
-execSync(`npm publish --access public --tag ${tag}`);
+execSync(`npm publish --access public --tag ${tag} --registry ${registry}`);
