@@ -4,10 +4,7 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {
-  },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
     "@nx/devkit": "^16.5.0",
     "@nx/eslint-plugin": "16.5.0",
     "@nx/js": "16.5.0",
