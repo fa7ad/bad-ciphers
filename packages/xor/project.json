@@ -33,6 +33,12 @@
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/packages/xor"
       }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
     }
   },
   "tags": []
