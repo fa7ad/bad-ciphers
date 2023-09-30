@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bad-ciphers/xor": ["packages/xor/src/index.ts"]
+      "@bad-ciphers/*": ["packages/*/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

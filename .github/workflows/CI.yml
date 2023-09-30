@@ -16,25 +16,20 @@ jobs:
         name: 📬 Checkout
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2
-        name: ⚡️ Install pnpm
-        id: pnpm-install
-        with:
-          version: latest
       - uses: actions/setup-node@v3
         name: ⬢ Install Node.js
         with:
           node-version: '20.x'
-          cache: 'pnpm'
+          cache: 'yarn'
       - uses: nrwl/nx-set-shas@v3
         name: 🪄 Set nx affected shas
-      - run: pnpm install
+      - run: yarn install
         name: 🔨 Install dependencies
-      - run: pnpm exec nx format:check
+      - run: yarn nx format:check
         name: 💅 Check formatting
-      - run: pnpm exec nx affected -t lint --parallel=3
+      - run: yarn nx affected -t lint --parallel=3
         name: 🧹 Lint
-      - run: pnpm exec nx affected -t test --parallel=3 --configuration=ci
+      - run: yarn nx affected -t test --parallel=3 --configuration=ci
         name: 🧪 Test
-      - run: pnpm exec nx affected -t build --parallel=3
+      - run: yarn nx affected -t build --parallel=3
         name: 🏗 Build

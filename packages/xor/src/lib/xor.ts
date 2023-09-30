@@ -6,6 +6,4 @@ export function encode(input: string, mask: number): string {
 }
 
 // Magic of XOR is that it's symmetric, so decoding is the same as encoding.
-export function decode(input: string, mask: number): string {
-  return encode(input, mask);
-}
+export const decode = encode;

@@ -12,7 +12,7 @@ describe('xor', () => {
     expect(encode('abc', 0xffff)).toEqual(
       String.fromCharCode(97 ^ 0xffff) +
         String.fromCharCode(98 ^ 0xffff) +
-        String.fromCharCode(99 ^ 0xffff)
+        String.fromCharCode(99 ^ 0xffff),
     );
 
     // empty string
