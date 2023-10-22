@@ -1,6 +1,8 @@
 {
   "name": "@bad-ciphers/xor",
   "version": "0.1.0",
-  "type": "module",
-  "license": "MIT"
+  "dependencies": {},
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts"
 }
