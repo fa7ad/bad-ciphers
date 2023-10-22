@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@bad-ciphers/*": ["packages/*/src/index.ts"],
+      "@bad-ciphers/caesar": ["packages/caesar/src/index.ts"],
       "@bad-ciphers/xor": ["packages/xor/src/index.ts"]
     }
   },
