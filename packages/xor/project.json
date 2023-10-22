@@ -5,39 +5,32 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nx/js:swc",
+      "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/xor",
-        "main": "packages/xor/src/index.ts",
-        "tsConfig": "packages/xor/tsconfig.lib.json",
-        "assets": ["packages/xor/*.md"],
-        "format": ["esm", "cjs"]
+        "outputPath": "dist/packages/xor"
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs xor {args.ver} {args.registry} {args.tag}",
+      "command": "node tools/scripts/publish.mjs xor {args.ver} {args.tag}",
       "dependsOn": ["build"]
-    },
-    "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["packages/xor/**/*.ts"]
-      }
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/packages/xor"],
+      "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/packages/xor"
       }
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "preset": "conventional"
+        "lintFilePatterns": [
+          "packages/xor/**/*.ts",
+          "packages/xor/package.json"
+        ]
       }
     }
   },
