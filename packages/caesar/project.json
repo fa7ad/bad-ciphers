@@ -4,6 +4,17 @@
   "sourceRoot": "packages/caesar/src",
   "projectType": "library",
   "targets": {
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "args": "--outputPath=dist/packages/caesar",
+        "commands": [
+          "cp -v LICENSE {args.outputPath}",
+          "cp -v {projectRoot}/*.md {args.outputPath}"
+        ]
+      }
+    },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
@@ -13,7 +24,7 @@
     },
     "publish": {
       "command": "node tools/scripts/publish.mjs caesar {args.ver} {args.tag}",
-      "dependsOn": ["build"]
+      "dependsOn": ["copyAssets", "build"]
     },
     "test": {
       "executor": "@nx/vite:test",
@@ -31,6 +42,12 @@
           "packages/caesar/**/*.ts",
           "packages/caesar/package.json"
         ]
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
       }
     }
   },

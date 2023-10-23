@@ -9,6 +9,7 @@
 
 import { execSync } from 'child_process';
 import { readFileSync, writeFileSync } from 'fs';
+import pkg from '../../package.json' assert { type: 'json' };
 
 import devkit from '@nx/devkit';
 const { readCachedProjectGraph } = devkit;
@@ -62,6 +63,9 @@ process.chdir(outputPath);
 try {
   const json = JSON.parse(readFileSync(`package.json`).toString());
   json.version = version;
+  json.license = pkg.license;
+  json.repository = pkg.repository;
+  json.author = pkg.author;
   writeFileSync(`package.json`, JSON.stringify(json, null, 2));
 } catch (e) {
   console.error(`Error reading package.json file from library build output.`);
