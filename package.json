@@ -2,6 +2,12 @@
   "name": "@bad-ciphers/source",
   "version": "0.0.0",
   "license": "MIT",
+  "repository": "https://github.com/fa7ad/bad-ciphers",
+  "author": {
+    "name": "Fahad Hossain",
+    "email": "setname.fahad@gmail.com",
+    "url": "https://mildlyboring.com"
+  },
   "scripts": {
     "prepare": "husky install"
   },

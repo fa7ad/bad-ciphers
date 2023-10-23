@@ -4,6 +4,18 @@
   "sourceRoot": "packages/xor/src",
   "projectType": "library",
   "targets": {
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+
+      "options": {
+        "args": "--outputPath=dist/packages/xor",
+        "commands": [
+          "cp -v LICENSE {args.outputPath}",
+          "cp -v {projectRoot}/*.md {args.outputPath}"
+        ]
+      }
+    },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
@@ -13,7 +25,7 @@
     },
     "publish": {
       "command": "node tools/scripts/publish.mjs xor {args.ver} {args.tag}",
-      "dependsOn": ["build"]
+      "dependsOn": ["copyAssets", "build"]
     },
     "test": {
       "executor": "@nx/vite:test",

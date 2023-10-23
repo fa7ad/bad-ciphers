@@ -1,6 +1,6 @@
 {
   "name": "@bad-ciphers/caesar",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "dependencies": {},
   "main": "./index.js",
   "module": "./index.mjs",
