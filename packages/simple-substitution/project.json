@@ -1,0 +1,55 @@
+{
+  "name": "simple-substitution",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/simple-substitution/src",
+  "projectType": "library",
+  "targets": {
+    "copyAssets": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "args": "--outputPath=dist/packages/simple-substitution",
+        "commands": [
+          "cp -v LICENSE {args.outputPath}",
+          "cp -v {projectRoot}/*.md {args.outputPath}"
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/simple-substitution"
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs simple-substitution {args.ver} {args.tag}",
+      "dependsOn": ["copyAssets", "build"]
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/simple-substitution"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/simple-substitution/**/*.ts",
+          "packages/simple-substitution/package.json"
+        ]
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional"
+      }
+    }
+  },
+  "tags": []
+}

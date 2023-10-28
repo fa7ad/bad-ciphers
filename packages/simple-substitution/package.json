@@ -1,0 +1,8 @@
+{
+  "name": "@bad-ciphers/simple-substitution",
+  "version": "0.1.0",
+  "dependencies": {},
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "typings": "./index.d.ts"
+}
