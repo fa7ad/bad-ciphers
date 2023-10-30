@@ -7,7 +7,7 @@ An implementation of the Simple Substitution Cipher.
 ```js
 import { encode, decode } from '@bad-ciphers/simple-substitution';
 
-const encoded = encode('Hello World', 'veycibjhougdrqnkwflpzsatmx')
+const encoded = encode('Hello World', 'veycibjhougdrqnkwflpzsatmx');
 // encoded === 'Hiddn Anfdc'
 const decoded = decode('Hiddn Anfdc!', 'veycibjhougdrqnkwflpzsatmx');
 // decoded === 'Hello World'

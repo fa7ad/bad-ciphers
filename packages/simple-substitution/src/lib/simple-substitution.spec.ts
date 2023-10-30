@@ -35,7 +35,11 @@ describe('simpleSubstitution', () => {
     const invalidKey = 'invalid'; // An invalid key that doesn't have 26 unique characters
 
     // Encoding and decoding should throw an error with an invalid key
-    expect(() => encode('hello', invalidKey)).toThrowError('The key must contain 26 unique characters.');
-    expect(() => decode('ifmmp', invalidKey)).toThrowError('The key must contain 26 unique characters.');
+    expect(() => encode('hello', invalidKey)).toThrowError(
+      'The key must contain 26 unique characters.',
+    );
+    expect(() => decode('ifmmp', invalidKey)).toThrowError(
+      'The key must contain 26 unique characters.',
+    );
   });
 });
