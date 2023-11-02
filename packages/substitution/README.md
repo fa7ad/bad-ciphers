@@ -1,11 +1,11 @@
-# @bad-ciphers/simple-substitution
+# @bad-ciphers/substitution
 
-An implementation of the Simple Substitution Cipher.
+An implementation of Substitution Cipher.
 
 ## Usage
 
 ```js
-import { encode, decode } from '@bad-ciphers/simple-substitution';
+import { encode, decode } from '@bad-ciphers/substitution/simple';
 
 const encoded = encode('Hello World', 'veycibjhougdrqnkwflpzsatmx');
 // encoded === 'Hiddn Anfdc'

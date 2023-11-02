@@ -1,14 +1,14 @@
 {
-  "name": "simple-substitution",
+  "name": "substitution",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/simple-substitution/src",
+  "sourceRoot": "packages/substitution/src",
   "projectType": "library",
   "targets": {
     "copyAssets": {
       "executor": "nx:run-commands",
       "dependsOn": ["build"],
       "options": {
-        "args": "--outputPath=dist/packages/simple-substitution",
+        "args": "--outputPath=dist/packages/substitution",
         "commands": [
           "cp -v LICENSE {args.outputPath}",
           "cp -v {projectRoot}/*.md {args.outputPath}"
@@ -19,11 +19,11 @@
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/simple-substitution"
+        "outputPath": "dist/packages/substitution"
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs simple-substitution {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs substitution {args.ver} {args.tag}",
       "dependsOn": ["copyAssets", "build"]
     },
     "test": {
@@ -31,7 +31,7 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/packages/simple-substitution"
+        "reportsDirectory": "../../coverage/packages/substitution"
       }
     },
     "lint": {
@@ -39,8 +39,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/simple-substitution/**/*.ts",
-          "packages/simple-substitution/package.json"
+          "packages/substitution/**/*.ts",
+          "packages/substitution/package.json"
         ]
       }
     },

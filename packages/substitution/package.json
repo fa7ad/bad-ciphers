@@ -1,5 +1,5 @@
 {
-  "name": "@bad-ciphers/simple-substitution",
+  "name": "@bad-ciphers/substitution",
   "version": "0.1.0",
   "dependencies": {},
   "main": "./index.js",

@@ -10,14 +10,15 @@ declare module 'vite' {
 }
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/simple-substitution',
+  cacheDir: '../../node_modules/.vite/substitution',
 
   plugins: [
     nxViteTsPaths(),
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
-    }),
+      rollupTypes: true
+    })
   ],
 
   // Uncomment this if you are using workers.
@@ -30,25 +31,25 @@ export default defineConfig({
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
-      name: 'simple-substitution',
-      fileName: 'index',
+      entry: ['src/index.ts', 'src/simple.ts'],
+      name: 'substitution',
+      fileName: '[name]',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
-      formats: ['es', 'cjs'],
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: [],
-    },
+      external: []
+    }
   },
 
   test: {
     globals: true,
     cache: {
-      dir: '../../node_modules/.vitest',
+      dir: '../../node_modules/.vitest'
     },
     environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-  },
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}']
+  }
 });

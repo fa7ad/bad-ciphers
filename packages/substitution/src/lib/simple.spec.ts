@@ -1,4 +1,4 @@
-import { encode, decode } from './simple-substitution';
+import { encode, decode } from './simple';
 
 describe('simpleSubstitution', () => {
   const validKey = 'bcdefghijklmnopqrstuvwxyza'; // A valid substitution key
@@ -36,10 +36,10 @@ describe('simpleSubstitution', () => {
 
     // Encoding and decoding should throw an error with an invalid key
     expect(() => encode('hello', invalidKey)).toThrowError(
-      'The key must contain 26 unique characters.',
+      'The key must contain 26 unique characters.'
     );
     expect(() => decode('ifmmp', invalidKey)).toThrowError(
-      'The key must contain 26 unique characters.',
+      'The key must contain 26 unique characters.'
     );
   });
 });
