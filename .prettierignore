@@ -4,3 +4,4 @@
 .yarn
 
 /.nx/cache
+/.nx/workspace-data
