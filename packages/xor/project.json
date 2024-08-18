@@ -3,11 +3,11 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/xor/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
     "copyAssets": {
       "executor": "nx:run-commands",
       "dependsOn": ["build"],
-
       "options": {
         "args": "--outputPath=dist/packages/xor",
         "commands": [
@@ -51,6 +51,5 @@
         "preset": "conventional"
       }
     }
-  },
-  "tags": []
+  }
 }
