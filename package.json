@@ -36,7 +36,7 @@
     "tslib": "^2.6.3",
     "typescript": "~5.5.4",
     "verdaccio": "^5.32.1",
-    "vite": "^7.3.2",
+    "vite": "^7.3.3",
     "vite-plugin-dts": "~4.0.3",
     "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.0.5"
