@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         name: ⬢ Install Node.js
         with:
-          node-version: lts
+          node-version: ^22.22.3
           cache: 'yarn'
       - uses: nrwl/nx-set-shas@v4
         name: 🪄 Set nx affected shas
